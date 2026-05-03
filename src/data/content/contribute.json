@@ -1,0 +1,22 @@
+{
+  "why_contribute": [
+    "Help a student continue their education",
+    "Fund a plantation drive in Visakhapatnam",
+    "Support a blood donation camp",
+    "Empower a woman towards employment",
+    "Promote cultural activities for youth"
+  ],
+  "after_transfer_note": "After transferring, please email fa4change@gmail.com with your name, amount, and transaction reference so we can acknowledge your contribution.",
+  "icici": {
+    "account_name": "FRIENDS ASSOCIATION FOR A CHANGE",
+    "account_number": "006001033376",
+    "ifsc": "ICIC0000060",
+    "branch": "Visakhapatnam Main Branch"
+  },
+  "sbi": {
+    "account_name": "FRIENDS ASSOCIATION FOR A CHANGE",
+    "account_number": "33747868111",
+    "ifsc": "SBIN0006959",
+    "branch": "Marripalem, Visakhapatnam"
+  }
+}

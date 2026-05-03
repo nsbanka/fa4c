@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
+publish_mode: editorial_workflow
+
 media_folder: public/images/uploads
 public_folder: /images/uploads
 
@@ -19,6 +21,32 @@ collections:
         fields:
           - { name: title, label: Page Title, widget: string }
           - { name: body, label: Content, widget: markdown }
+
+      - name: contribute
+        label: Contribute Now
+        file: src/data/content/contribute.json
+        fields:
+          - name: why_contribute
+            label: Why Contribute (bullet points)
+            widget: list
+            field: { name: point, label: Point, widget: string }
+          - { name: after_transfer_note, label: After-Transfer Note, widget: text }
+          - name: icici
+            label: ICICI Bank Details
+            widget: object
+            fields:
+              - { name: account_name, label: Account Name, widget: string }
+              - { name: account_number, label: Account Number, widget: string }
+              - { name: ifsc, label: IFSC Code, widget: string }
+              - { name: branch, label: Branch, widget: string }
+          - name: sbi
+            label: SBI Bank Details
+            widget: object
+            fields:
+              - { name: account_name, label: Account Name, widget: string }
+              - { name: account_number, label: Account Number, widget: string }
+              - { name: ifsc, label: IFSC Code, widget: string }
+              - { name: branch, label: Branch, widget: string }
 
       - name: audit_reports
         label: Audit Reports

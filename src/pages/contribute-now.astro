@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../data/content/contribute.json';
+
+const { why_contribute, after_transfer_note, icici, sbi } = data;
 ---
 <BaseLayout title="Contribute Now" description="Support Friends Association for a Change — donate via ICICI Bank or SBI to help underprivileged communities.">
   <div class="max-w-4xl mx-auto px-4 py-12">
@@ -12,11 +15,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="mt-6 bg-[#f0faf4] rounded-xl p-5 border border-[#1a6b3c]/20">
           <h3 class="font-semibold text-[#1a6b3c] mb-2">Why Contribute?</h3>
           <ul class="text-sm text-gray-600 space-y-2">
-            <li>✅ Help a student continue their education</li>
-            <li>✅ Fund a plantation drive in Visakhapatnam</li>
-            <li>✅ Support a blood donation camp</li>
-            <li>✅ Empower a woman towards employment</li>
-            <li>✅ Promote cultural activities for youth</li>
+            {why_contribute.map((point: string) => (
+              <li>✅ {point}</li>
+            ))}
           </ul>
           <p class="text-xs text-gray-500 mt-4">FA4C publishes annual audit reports for full transparency. <a href="/audit-reports/" class="text-[#1a6b3c] underline">View Reports →</a></p>
         </div>
@@ -31,10 +32,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
           <table class="w-full text-sm">
             <tbody class="divide-y divide-gray-100">
-              <tr class="py-2"><td class="py-2 text-gray-500 w-44">Account Name</td><td class="py-2 font-medium">FRIENDS ASSOCIATION FOR A CHANGE</td></tr>
-              <tr><td class="py-2 text-gray-500">Account Number</td><td class="py-2 font-medium font-mono">006001033376</td></tr>
-              <tr><td class="py-2 text-gray-500">IFSC Code</td><td class="py-2 font-medium font-mono">ICIC0000060</td></tr>
-              <tr><td class="py-2 text-gray-500">Branch</td><td class="py-2 font-medium">Visakhapatnam Main Branch</td></tr>
+              <tr class="py-2"><td class="py-2 text-gray-500 w-44">Account Name</td><td class="py-2 font-medium">{icici.account_name}</td></tr>
+              <tr><td class="py-2 text-gray-500">Account Number</td><td class="py-2 font-medium font-mono">{icici.account_number}</td></tr>
+              <tr><td class="py-2 text-gray-500">IFSC Code</td><td class="py-2 font-medium font-mono">{icici.ifsc}</td></tr>
+              <tr><td class="py-2 text-gray-500">Branch</td><td class="py-2 font-medium">{icici.branch}</td></tr>
             </tbody>
           </table>
         </div>
@@ -47,16 +48,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
           <table class="w-full text-sm">
             <tbody class="divide-y divide-gray-100">
-              <tr class="py-2"><td class="py-2 text-gray-500 w-44">Account Name</td><td class="py-2 font-medium">FRIENDS ASSOCIATION FOR A CHANGE</td></tr>
-              <tr><td class="py-2 text-gray-500">Account Number</td><td class="py-2 font-medium font-mono">33747868111</td></tr>
-              <tr><td class="py-2 text-gray-500">IFSC Code</td><td class="py-2 font-medium font-mono">SBIN0006959</td></tr>
-              <tr><td class="py-2 text-gray-500">Branch</td><td class="py-2 font-medium">Marripalem, Visakhapatnam</td></tr>
+              <tr class="py-2"><td class="py-2 text-gray-500 w-44">Account Name</td><td class="py-2 font-medium">{sbi.account_name}</td></tr>
+              <tr><td class="py-2 text-gray-500">Account Number</td><td class="py-2 font-medium font-mono">{sbi.account_number}</td></tr>
+              <tr><td class="py-2 text-gray-500">IFSC Code</td><td class="py-2 font-medium font-mono">{sbi.ifsc}</td></tr>
+              <tr><td class="py-2 text-gray-500">Branch</td><td class="py-2 font-medium">{sbi.branch}</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 text-sm text-yellow-800">
-          <strong>After transferring:</strong> Please email <a href="mailto:fa4change@gmail.com" class="underline">fa4change@gmail.com</a> with your name, amount, and transaction reference so we can acknowledge your contribution.
+          <strong>After transferring:</strong> {after_transfer_note}
         </div>
       </div>
     </div>
