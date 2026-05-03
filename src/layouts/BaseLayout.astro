@@ -37,6 +37,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <link rel="icon" type="image/jpeg" href="/images/logo.jpg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <!-- Netlify Identity widget — handles invite/recovery tokens that land on the root URL -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-green-800 px-4 py-2 rounded z-50">
@@ -47,5 +49,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <slot />
     </main>
     <Footer />
+    <script>
+      // After Netlify Identity processes an invite/recovery token, redirect to /admin/
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', (user: unknown) => {
+          if (!user) {
+            window.netlifyIdentity.on('login', () => {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>
