@@ -2,6 +2,7 @@
 name: Sankalpam
 slug: sankalpam
 icon: 👩
+order: 4
 description: Empowering women in distress with guidance, skills, and pathways to employment.
 image: /images/2016/Sankalpam-page-001.jpg
 ---

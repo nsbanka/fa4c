@@ -20,6 +20,21 @@ collections:
           - { name: title, label: Page Title, widget: string }
           - { name: body, label: Content, widget: markdown }
 
+      - name: audit_reports
+        label: Audit Reports
+        file: src/data/content/audit-reports.json
+        fields:
+          - name: reports
+            label: Reports
+            widget: list
+            fields:
+              - { name: year, label: Year (e.g. 2018–2019), widget: string }
+              - name: file
+                label: PDF File
+                widget: file
+                media_folder: public/pdfs
+                public_folder: /pdfs
+
   - name: programmes
     label: Programmes
     label_singular: Programme
@@ -28,9 +43,22 @@ collections:
     slug: '{{slug}}'
     fields:
       - { name: name, label: Programme Name, widget: string }
+      - { name: order, label: Display Order, widget: number, default: 99 }
       - { name: description, label: Short Description, widget: text }
       - { name: body, label: Full Content, widget: markdown }
       - { name: image, label: Programme Image, widget: image, required: false }
+
+  - name: press
+    label: Press Coverage
+    label_singular: Press Clipping
+    folder: src/data/press
+    create: true
+    slug: '{{order}}-{{slug}}'
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: text }
+      - { name: image, label: Newspaper Clipping Image, widget: image }
+      - { name: order, label: Display Order, widget: number, default: 99 }
 
   - name: faqs
     label: FAQs

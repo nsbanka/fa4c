@@ -1,48 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const programmes = [
-  {
-    slug: 'vidyabhyasam',
-    name: 'Vidyabhyasam',
-    icon: '📚',
-    color: 'bg-blue-50 border-blue-200',
-    description: 'Supporting underprivileged students from 6th to 10th standard in government schools by providing financial aid for their education. We prefer orphans and semi-orphans studying in Municipal Corporation, Zilla Parishad, or Government Aided schools.',
-    image: '/images/2016/Vidyabyasam.jpg',
-  },
-  {
-    slug: 'pragathi',
-    name: 'Pragathi',
-    icon: '🌱',
-    color: 'bg-green-50 border-green-200',
-    description: 'Environmental development through plantation programmes at housing areas, schools, and colleges. All activities related to environmental awareness and development fall under Pragathi.',
-    image: '/images/2016/FA4Change-Pragathi-Program.jpg',
-  },
-  {
-    slug: 'sphoorthi',
-    name: 'Sphoorthi',
-    icon: '🩸',
-    color: 'bg-red-50 border-red-200',
-    description: 'Medical support and blood donation drives. A person who helps during a medical emergency stands as an inspiration to others. All medical-related programmes are part of Sphoorthi.',
-    image: '/images/2016/Spoorthi.png',
-  },
-  {
-    slug: 'sankalpam',
-    name: 'Sankalpam',
-    icon: '👩',
-    color: 'bg-purple-50 border-purple-200',
-    description: 'Empowering women in distress with determination (sankalpam) and guidance towards employment and self-sufficiency. All women empowerment programmes fall under Sankalpam.',
-    image: '/images/2016/Sankalpam-page-001.jpg',
-  },
-  {
-    slug: 'mee-nestham',
-    name: 'Mee Nestham',
-    icon: '🎭',
-    color: 'bg-orange-50 border-orange-200',
-    description: 'Promoting Indian culture, sports, arts, and skills of talented individuals. All activities beyond the four core programmes are part of Mee Nestham — truly "your friendship".',
-    image: '/images/2016/Mee-nestam-JPG2-Copy.jpg',
-  },
-];
+const modules = import.meta.glob('../../data/programmes/*.md', { eager: true });
+const programmes = (Object.values(modules) as any[])
+  .map((mod: any) => mod.frontmatter)
+  .sort((a: any, b: any) => (a.order ?? 99) - (b.order ?? 99));
 ---
 
 <BaseLayout title="Our Programmes" description="Learn about the five programmes run by Friends Association for a Change — education, environment, health, women empowerment, and culture.">
@@ -54,10 +16,14 @@ const programmes = [
     </p>
 
     <div class="space-y-10">
-      {programmes.map((p, i) => (
+      {programmes.map((p: any, i: number) => (
         <div class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden`}>
-          <div class="md:w-80 flex-shrink-0 h-56 overflow-hidden">
-            <img src={p.image} alt={p.name} class="w-full h-full object-cover" loading="lazy" />
+          <div class="md:w-80 flex-shrink-0 h-56 bg-gray-50 overflow-hidden flex items-center justify-center">
+            {p.image ? (
+              <img src={p.image} alt={p.name} class="w-full h-full object-cover" loading="lazy" />
+            ) : (
+              <span class="text-6xl">{p.icon}</span>
+            )}
           </div>
           <div class="flex-1 p-6 md:p-8">
             <div class="text-3xl mb-3">{p.icon}</div>

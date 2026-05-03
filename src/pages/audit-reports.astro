@@ -1,14 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import auditData from '../data/content/audit-reports.json';
 
-const reports = [
-  { year: '2017–2018', file: 'audit-report-2017-2018-1.pdf' },
-  { year: '2016–2017', file: 'audit-report-2016-2017-1.pdf' },
-  { year: '2015–2016', file: 'audit-report-2015-2016.pdf' },
-  { year: '2014–2015', file: 'audit-report-2014-2015.pdf' },
-  { year: '2013–2014', file: 'audit-report-2013-2014.pdf' },
-  { year: '2012–2013', file: 'audit-report-2012-2013.pdf' },
-];
+const { reports } = auditData;
 ---
 <BaseLayout title="Audit Reports" description="Annual audit reports of Friends Association for a Change — financial transparency since 2012.">
   <div class="max-w-4xl mx-auto px-4 py-12">
@@ -19,17 +13,17 @@ const reports = [
     </p>
 
     <div class="grid sm:grid-cols-2 gap-4 mb-10">
-      {reports.map(r => (
+      {reports.map((r: any) => (
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex items-center justify-between gap-4">
           <div>
             <div class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">Annual Report</div>
             <div class="text-lg font-bold text-gray-800">{r.year}</div>
           </div>
           <div class="flex gap-2 flex-shrink-0">
-            <a href={`/pdfs/${r.file}`} target="_blank" rel="noopener" class="bg-[#1a6b3c] text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-[#134f2d] transition-colors">
+            <a href={r.file} target="_blank" rel="noopener" class="bg-[#1a6b3c] text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-[#134f2d] transition-colors">
               View
             </a>
-            <a href={`/pdfs/${r.file}`} download class="border border-[#1a6b3c] text-[#1a6b3c] text-xs font-semibold px-4 py-2 rounded-full hover:bg-[#1a6b3c] hover:text-white transition-colors">
+            <a href={r.file} download class="border border-[#1a6b3c] text-[#1a6b3c] text-xs font-semibold px-4 py-2 rounded-full hover:bg-[#1a6b3c] hover:text-white transition-colors">
               Download
             </a>
           </div>

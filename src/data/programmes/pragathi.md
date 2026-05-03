@@ -2,6 +2,7 @@
 name: Pragathi
 slug: pragathi
 icon: 🌱
+order: 2
 description: Environmental development through plantation drives and
   eco-awareness programmes.
 image: /images/2016/FA4Change-Pragathi-Program.jpg

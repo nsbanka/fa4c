@@ -1,0 +1,10 @@
+{
+  "reports": [
+    { "year": "2017–2018", "file": "/pdfs/audit-report-2017-2018-1.pdf" },
+    { "year": "2016–2017", "file": "/pdfs/audit-report-2016-2017-1.pdf" },
+    { "year": "2015–2016", "file": "/pdfs/audit-report-2015-2016.pdf" },
+    { "year": "2014–2015", "file": "/pdfs/audit-report-2014-2015.pdf" },
+    { "year": "2013–2014", "file": "/pdfs/audit-report-2013-2014.pdf" },
+    { "year": "2012–2013", "file": "/pdfs/audit-report-2012-2013.pdf" }
+  ]
+}

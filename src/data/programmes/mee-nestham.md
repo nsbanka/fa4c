@@ -2,6 +2,7 @@
 name: Mee Nestham
 slug: mee-nestham
 icon: 🎭
+order: 5
 description: Promoting Indian culture, sports, arts, and community activities.
 image: /images/2016/Mee-nestam-JPG2-Copy.jpg
 ---

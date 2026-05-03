@@ -2,6 +2,7 @@
 name: Sphoorthi
 slug: sphoorthi
 icon: 🩸
+order: 3
 description: Medical support including blood donation drives and health awareness camps.
 image: /images/2016/Spoorthi.png
 ---

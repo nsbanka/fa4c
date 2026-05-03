@@ -2,6 +2,7 @@
 name: Vidyabhyasam
 slug: vidyabhyasam
 icon: 📚
+order: 1
 description: Supporting education of underprivileged students.
 image: /images/2016/Vidyabyasam.jpg
 ---
