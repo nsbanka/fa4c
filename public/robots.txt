@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fa4change.org/sitemap-index.xml

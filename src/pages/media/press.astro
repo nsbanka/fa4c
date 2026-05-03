@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const clippings = [
+  {
+    title: "Sakshi — September 20, 2015",
+    description: "FA4C activities covered in the Sakshi newspaper Medak District Edition.",
+    image: '/images/2016/05/20th-Sep-2015-Sakshi-Medak-District-Edition.jpg',
+    alt: "Sakshi Newspaper — 20th Sep 2015, Medak District Edition",
+  },
+  {
+    title: "Published by Sakshi",
+    description: "FA4C featured in Sakshi newspaper.",
+    image: '/images/2016/05/Published-by-Sakshi.jpg',
+    alt: "Published by Sakshi newspaper",
+  },
+];
+---
+<BaseLayout title="Press Coverage" description="Print media coverage of Friends Association for a Change's programmes and events.">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <nav class="text-sm text-gray-500 mb-6">
+      <a href="/media/" class="hover:text-[#1a6b3c]">Media</a> / <span class="text-gray-800">Press</span>
+    </nav>
+    <h1 class="text-4xl font-bold text-[#1a6b3c] mb-2">Press Coverage</h1>
+    <div class="w-16 h-1 bg-[#e87722] mb-8"></div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      {clippings.map(item => (
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+          <a href={item.image} target="_blank" rel="noopener noreferrer" class="block overflow-hidden h-64">
+            <img src={item.image} alt={item.alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+          </a>
+          <div class="p-4">
+            <h3 class="font-semibold text-gray-800">{item.title}</h3>
+            <p class="text-sm text-gray-500 mt-1">{item.description}</p>
+            <a href={item.image} target="_blank" rel="noopener noreferrer" class="text-xs text-[#1a6b3c] font-medium mt-2 inline-block hover:underline">View Full Size →</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="About Us" description="Learn about Friends Association for a Change — our history, mission, and board members.">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-[#1a6b3c] mb-2">About Us</h1>
+    <div class="w-16 h-1 bg-[#e87722] mb-8"></div>
+
+    <div class="prose prose-lg max-w-none text-gray-700">
+      <img src="/images/2016/05/imprint-418594_1920-1-e1464390351624.jpg" alt="Friends Association for a Change" class="rounded-xl shadow-md mb-8 w-full object-cover max-h-72" />
+
+      <h2 class="text-2xl font-bold text-[#1a6b3c] mt-8 mb-4">Who We Are</h2>
+      <p>
+        <strong>Friends Association for a Change (FA4C)</strong> is a non-profit organization registered in Visakhapatnam, Andhra Pradesh, India. Founded in 2011, FA4C was established by a group of friends who wanted to make a meaningful difference in the lives of underprivileged people in their community.
+      </p>
+      <p>
+        The name reflects our core belief: that ordinary friends, coming together with purpose, can create extraordinary change. We work across five programme areas — education, environment, health, women empowerment, and cultural activities.
+      </p>
+
+      <h2 class="text-2xl font-bold text-[#1a6b3c] mt-8 mb-4">Our Mission</h2>
+      <p>
+        To implement welfare initiatives for underprivileged communities by channeling the collective energy of dedicated volunteers into programmes that create lasting, positive impact.
+      </p>
+
+      <h2 class="text-2xl font-bold text-[#1a6b3c] mt-8 mb-4">Our Values</h2>
+      <ul class="space-y-2">
+        <li><strong>Transparency</strong> — We publish annual audit reports publicly.</li>
+        <li><strong>Accountability</strong> — Every rupee contributed is tracked and reported.</li>
+        <li><strong>Community-first</strong> — Decisions are driven by on-the-ground needs, not abstract goals.</li>
+        <li><strong>Volunteerism</strong> — Our work is powered by people who give their time and skills freely.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-[#1a6b3c] mt-8 mb-4">Our Five Programmes</h2>
+      <div class="grid sm:grid-cols-2 gap-4 not-prose mt-4">
+        {[
+          { name: 'Vidyabhyasam', desc: 'Education support for students in 6th–10th standard', href: '/our-programmes/vidyabhyasam/' },
+          { name: 'Pragathi', desc: 'Environmental development & plantation programmes', href: '/our-programmes/pragathi/' },
+          { name: 'Sphoorthi', desc: 'Medical & blood donation programmes', href: '/our-programmes/sphoorthi/' },
+          { name: 'Sankalpam', desc: 'Women empowerment & employment guidance', href: '/our-programmes/sankalpam/' },
+          { name: 'Mee Nestham', desc: 'Cultural, sports & community activities', href: '/our-programmes/mee-nestham/' },
+        ].map(p => (
+          <a href={p.href} class="flex items-start gap-3 p-4 bg-[#f0faf4] rounded-lg hover:bg-[#1a6b3c]/10 transition-colors border border-[#1a6b3c]/10">
+            <div class="w-2 h-2 rounded-full bg-[#e87722] mt-2 flex-shrink-0"></div>
+            <div>
+              <div class="font-semibold text-[#1a6b3c]">{p.name}</div>
+              <div class="text-sm text-gray-600">{p.desc}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="text-2xl font-bold text-[#1a6b3c] mt-10 mb-4">Contact Us</h2>
+      <p>We are based in Visakhapatnam, Andhra Pradesh. Reach us at <a href="mailto:fa4change@gmail.com" class="text-[#1a6b3c] font-medium underline">fa4change@gmail.com</a> or visit our <a href="/contact-us/" class="text-[#1a6b3c] font-medium underline">Contact page</a>.</p>
+    </div>
+  </div>
+</BaseLayout>

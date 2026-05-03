@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const programmes = [
+  {
+    slug: 'vidyabhyasam',
+    name: 'Vidyabhyasam',
+    icon: '📚',
+    description: 'Supporting education for underprivileged students from 6th to 10th standard in government schools.',
+    image: '/images/2016/05/Vidyabyasam.jpg',
+  },
+  {
+    slug: 'pragathi',
+    name: 'Pragathi',
+    icon: '🌱',
+    description: 'Environmental development through plantation drives and eco-awareness programmes.',
+    image: '/images/2016/05/FA4Change-Pragathi-Program.jpg',
+  },
+  {
+    slug: 'sphoorthi',
+    name: 'Sphoorthi',
+    icon: '🩸',
+    description: 'Medical support including blood donation drives and health awareness camps.',
+    image: '/images/2016/05/Spoorthi.png',
+  },
+  {
+    slug: 'sankalpam',
+    name: 'Sankalpam',
+    icon: '👩',
+    description: 'Empowering women in distress with guidance, skills, and pathways to employment.',
+    image: '/images/2016/05/Sankalpam-page-001.jpg',
+  },
+  {
+    slug: 'mee-nestham',
+    name: 'Mee Nestham',
+    icon: '🎭',
+    description: 'Promoting Indian culture, sports, arts, and community activities.',
+    image: '/images/2016/05/Mee-nestam-JPG2-Copy.jpg',
+  },
+];
+
+const galleryTeaser = [
+  '/images/gallery/2017/IMG-20170705-WA0003.jpg',
+  '/images/gallery/2016/20160409_180524_1024x576.jpg',
+  '/images/gallery/2015/IMG-20150730-WA0017.jpg',
+  '/images/gallery/2015/IMG-20150702-WA0013.jpg',
+  '/images/gallery/2014/IMG-20140624-WA0004.jpg',
+  '/images/gallery/2013/IMG_20130720_135652.jpg',
+];
+---
+
+<BaseLayout
+  title="Home"
+  description="Friends Association for a Change — a nonprofit working for underprivileged communities in Visakhapatnam, India since 2011."
+>
+
+  <!-- Hero -->
+  <section class="relative bg-[#1a6b3c] text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black/30"></div>
+    <div class="relative max-w-6xl mx-auto px-4 py-24 text-center">
+      <img src="/images/logo.jpg" alt="FA4C Logo" class="mx-auto h-24 w-24 rounded-full object-cover mb-6 shadow-xl border-4 border-white/30" />
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+        Friends Association<br class="hidden md:block" /> for a Change
+      </h1>
+      <p class="text-xl text-orange-200 font-medium mb-3">
+        Working for the Underprivileged Community since 2011
+      </p>
+      <p class="text-green-100 max-w-xl mx-auto mb-8 text-lg">
+        A nonprofit organisation based in Visakhapatnam, Andhra Pradesh, India — committed to education, environment, health, and women empowerment.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/our-programmes/" class="bg-white text-[#1a6b3c] font-semibold px-8 py-3 rounded-full hover:bg-green-50 transition-colors shadow">
+          Our Programmes
+        </a>
+        <a href="/contribute-now/" class="bg-[#e87722] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#d06820] transition-colors shadow">
+          Contribute Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <section class="bg-[#e87722] text-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <div class="text-3xl font-bold">2011</div>
+        <div class="text-orange-100 text-sm mt-1">Year Founded</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold">5</div>
+        <div class="text-orange-100 text-sm mt-1">Active Programmes</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold">6+</div>
+        <div class="text-orange-100 text-sm mt-1">Years of Audited Accounts</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold">Vizag</div>
+        <div class="text-orange-100 text-sm mt-1">Visakhapatnam, AP</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programmes -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center text-[#1a6b3c] mb-2">Our Programmes</h2>
+    <p class="text-center text-gray-500 mb-10 max-w-xl mx-auto">Five focused initiatives addressing the most pressing needs of our community.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {programmes.map(p => (
+        <a href={`/our-programmes/${p.slug}/`} class="group bg-white rounded-xl shadow hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden">
+          <div class="h-44 overflow-hidden bg-gray-100">
+            <img src={p.image} alt={p.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+          </div>
+          <div class="p-5">
+            <div class="text-2xl mb-2">{p.icon}</div>
+            <h3 class="font-bold text-lg text-[#1a6b3c] mb-2">{p.name}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{p.description}</p>
+            <div class="mt-4 text-[#e87722] text-sm font-semibold group-hover:underline">Learn More →</div>
+          </div>
+        </a>
+      ))}
+      <a href="/our-programmes/" class="group bg-[#f0faf4] rounded-xl shadow border border-[#1a6b3c]/20 overflow-hidden flex items-center justify-center p-8 hover:bg-[#1a6b3c] transition-colors">
+        <div class="text-center">
+          <div class="text-4xl mb-3">🔍</div>
+          <div class="font-bold text-[#1a6b3c] group-hover:text-white">View All Programmes</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- About snippet -->
+  <section class="bg-[#f9f8f5] py-16">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-[#1a6b3c] mb-4">About Us</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Friends Association for a Change (FA4C) was established in 2011 with the goal of implementing welfare initiatives for underprivileged communities in Visakhapatnam, Andhra Pradesh.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          Our volunteers work on the ground across education, environment, health, women empowerment, and cultural promotion — making a tangible difference in people's lives every day.
+        </p>
+        <a href="/about-us/" class="inline-block bg-[#1a6b3c] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#134f2d] transition-colors">
+          Learn About FA4C
+        </a>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        {galleryTeaser.slice(0, 4).map((src, i) => (
+          <img src={src} alt={`FA4C activity ${i + 1}`} class="rounded-lg object-cover h-36 w-full shadow" loading="lazy" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery teaser -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center text-[#1a6b3c] mb-2">Photo Gallery</h2>
+    <p class="text-center text-gray-500 mb-10">Moments from our community activities across the years.</p>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+      {galleryTeaser.map((src, i) => (
+        <a href="/gallery/" class="overflow-hidden rounded-lg shadow hover:shadow-md transition-shadow">
+          <img src={src} alt={`Gallery photo ${i + 1}`} class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+        </a>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/gallery/" class="inline-block border-2 border-[#1a6b3c] text-[#1a6b3c] font-semibold px-8 py-3 rounded-full hover:bg-[#1a6b3c] hover:text-white transition-colors">
+        View Full Gallery
+      </a>
+    </div>
+  </section>
+
+  <!-- Contribute CTA -->
+  <section class="bg-[#1a6b3c] text-white py-16">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Support Our Work</h2>
+      <p class="text-green-200 mb-6 text-lg">
+        Your contribution helps us continue our programmes for underprivileged students, women, and communities in Visakhapatnam.
+      </p>
+      <div class="bg-white/10 rounded-xl p-6 mb-8 text-left max-w-md mx-auto">
+        <p class="text-sm text-green-100 font-medium mb-3">Quick Transfer Details</p>
+        <p class="text-sm"><span class="text-green-300">ICICI Bank · </span>A/c: 006001033376 · IFSC: ICIC0000060</p>
+        <p class="text-sm mt-1"><span class="text-green-300">SBI · </span>A/c: 33747868111 · IFSC: SBIN0006959</p>
+        <p class="text-xs text-green-300 mt-2">Account Name: FRIENDS ASSOCIATION FOR A CHANGE</p>
+      </div>
+      <a href="/contribute-now/" class="inline-block bg-[#e87722] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#d06820] transition-colors shadow-lg">
+        View Full Donation Details
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

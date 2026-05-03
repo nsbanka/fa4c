@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Our Presence" description="FA4C is based in Visakhapatnam, Andhra Pradesh, India. Find our location on the map.">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-[#1a6b3c] mb-2">Our Presence</h1>
+    <div class="w-16 h-1 bg-[#e87722] mb-8"></div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div>
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Address</h2>
+        <address class="not-italic text-gray-700 leading-relaxed mb-6">
+          <strong>Friends Association for a Change</strong><br />
+          Door No. 58-14-91, Flat No. 401<br />
+          Prakash Residency, HIG-20<br />
+          Marripalem VUDA Layout<br />
+          Visakhapatnam, Andhra Pradesh 530009<br />
+          India
+        </address>
+
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Contact</h2>
+        <div class="space-y-2 text-gray-700">
+          <p>
+            <span class="font-medium">Email:</span>
+            <a href="mailto:fa4change@gmail.com" class="text-[#1a6b3c] hover:underline ml-1">fa4change@gmail.com</a>
+          </p>
+          <p>
+            <span class="font-medium">Facebook:</span>
+            <a href="https://www.facebook.com/fa4change" target="_blank" rel="noopener noreferrer" class="text-[#1a6b3c] hover:underline ml-1">facebook.com/fa4change</a>
+          </p>
+          <p>
+            <span class="font-medium">Twitter/X:</span>
+            <a href="https://twitter.com/fa4change" target="_blank" rel="noopener noreferrer" class="text-[#1a6b3c] hover:underline ml-1">twitter.com/fa4change</a>
+          </p>
+        </div>
+
+        <div class="mt-8">
+          <a href="/contact-us/" class="inline-block bg-[#1a6b3c] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#134f2d] transition-colors">
+            Send Us a Message
+          </a>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden shadow-md border border-gray-200">
+        <iframe
+          width="100%"
+          height="400"
+          loading="lazy"
+          allowfullscreen
+          title="FA4C Location — Marripalem VUDA Layout, Visakhapatnam"
+          src="https://maps.google.com/maps?q=Marripalem+VUDA+Layout+Visakhapatnam+Andhra+Pradesh+530009&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const reports = [
+  { year: '2017–2018', file: 'audit-report-2017-2018-1.pdf' },
+  { year: '2016–2017', file: 'audit-report-2016-2017-1.pdf' },
+  { year: '2015–2016', file: 'audit-report-2015-2016.pdf' },
+  { year: '2014–2015', file: 'audit-report-2014-2015.pdf' },
+  { year: '2013–2014', file: 'audit-report-2013-2014.pdf' },
+  { year: '2012–2013', file: 'audit-report-2012-2013.pdf' },
+];
+---
+<BaseLayout title="Audit Reports" description="Annual audit reports of Friends Association for a Change — financial transparency since 2012.">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-[#1a6b3c] mb-2">Audit Reports</h1>
+    <div class="w-16 h-1 bg-[#e87722] mb-4"></div>
+    <p class="text-gray-600 mb-8 text-lg">
+      FA4C is committed to full financial transparency. Our annual audit reports are published here for public access.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-4 mb-10">
+      {reports.map(r => (
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex items-center justify-between gap-4">
+          <div>
+            <div class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">Annual Report</div>
+            <div class="text-lg font-bold text-gray-800">{r.year}</div>
+          </div>
+          <div class="flex gap-2 flex-shrink-0">
+            <a href={`/pdfs/${r.file}`} target="_blank" rel="noopener" class="bg-[#1a6b3c] text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-[#134f2d] transition-colors">
+              View
+            </a>
+            <a href={`/pdfs/${r.file}`} download class="border border-[#1a6b3c] text-[#1a6b3c] text-xs font-semibold px-4 py-2 rounded-full hover:bg-[#1a6b3c] hover:text-white transition-colors">
+              Download
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Brochure -->
+    <div class="bg-[#f0faf4] rounded-xl border border-[#1a6b3c]/20 p-5 flex items-center justify-between gap-4">
+      <div>
+        <div class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">Organisation Brochure</div>
+        <div class="text-lg font-bold text-gray-800">FA4Change Brochure</div>
+        <div class="text-sm text-gray-500">Overview of our programmes and activities</div>
+      </div>
+      <div class="flex gap-2 flex-shrink-0">
+        <a href="/pdfs/fa4change-brochure.pdf" target="_blank" rel="noopener" class="bg-[#e87722] text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-[#d06820] transition-colors">
+          View
+        </a>
+        <a href="/pdfs/fa4change-brochure.pdf" download class="border border-[#e87722] text-[#e87722] text-xs font-semibold px-4 py-2 rounded-full hover:bg-[#e87722] hover:text-white transition-colors">
+          Download
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

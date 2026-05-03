@@ -1,0 +1,51 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Security headers for admin panel
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    Content-Security-Policy = "frame-ancestors 'self'"
+
+# Redirect old WordPress-style URLs
+[[redirects]]
+  from = "/?page_id=*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "/404"
+  status = 301
+
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/404"
+  status = 301
+
+# Canonical trailing slash redirects
+[[redirects]]
+  from = "/about-us"
+  to = "/about-us/"
+  status = 301
+
+[[redirects]]
+  from = "/our-programmes"
+  to = "/our-programmes/"
+  status = 301
+
+[[redirects]]
+  from = "/gallery"
+  to = "/gallery/"
+  status = 301
+
+[[redirects]]
+  from = "/contact-us"
+  to = "/contact-us/"
+  status = 301

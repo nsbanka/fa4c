@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  --green: #1a6b3c;
+  --green-dark: #134f2d;
+  --orange: #e87722;
+  --orange-light: #f59a4f;
+  --off-white: #f9f8f5;
+  --text: #1f2937;
+  --text-muted: #6b7280;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: #fff;
+}
+
+/* PhotoSwipe import */
+@import "photoswipe/dist/photoswipe.css";

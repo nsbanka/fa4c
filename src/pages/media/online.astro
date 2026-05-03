@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const coverage = [
+  {
+    title: "FA4C Organ Donation Awareness Drive — MOHAN Foundation",
+    description: "Friends Association for a Change organised a social awareness drive on the Importance of Organ Donation at Mahindra Satyam, Visakhapatnam on 10th May, 2012. This event was published on the website of MOHAN Foundation.",
+    url: "http://www.mohanfoundation.org/activities/Presentation-to-the-Employees-of-Mahindra-Satyam-Limited-Visakhapatnam-625.htm",
+    date: "May 2012",
+  },
+  {
+    title: "Organ Donation Walk — Vikasa Tharangini Youth (Hyderabad)",
+    description: "FA4C actively participated in a walk supporting Organ Donation at Hyderabad from People's Plaza on Necklace Road to PVN Gyan Bhoomi on 30th December, 2012. Organised by Vikasa Tharangini Youth in partnership with MOHAN Foundation.",
+    url: null,
+    date: "December 2012",
+  },
+];
+---
+<BaseLayout title="Online Media" description="Online coverage of Friends Association for a Change's programmes and events.">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <nav class="text-sm text-gray-500 mb-6">
+      <a href="/media/" class="hover:text-[#1a6b3c]">Media</a> / <span class="text-gray-800">Online</span>
+    </nav>
+    <h1 class="text-4xl font-bold text-[#1a6b3c] mb-2">Online Coverage</h1>
+    <div class="w-16 h-1 bg-[#e87722] mb-8"></div>
+
+    <div class="space-y-6">
+      {coverage.map((item, i) => (
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-[#1a6b3c] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+              {i + 1}
+            </div>
+            <div>
+              <div class="text-xs text-gray-400 mb-1">{item.date}</div>
+              <h2 class="font-bold text-gray-800 mb-2">{item.title}</h2>
+              <p class="text-gray-600 text-sm leading-relaxed mb-3">{item.description}</p>
+              {item.url && (
+                <a href={item.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#1a6b3c] text-sm font-medium hover:underline">
+                  View Original Article
+                  <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
