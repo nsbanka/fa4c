@@ -1,6 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { galleryYears } from '../data/gallery';
+
+const modules = import.meta.glob('../data/gallery-cms/*.md', { eager: true });
+const galleryYears = Object.values(modules)
+  .map((mod: any) => ({
+    year: mod.frontmatter.year,
+    images: (mod.frontmatter.images ?? []).map((img: any) => ({
+      src: img.image,
+      width: 1200,
+      height: 900,
+      alt: img.alt,
+    })),
+    blogspotUrl: mod.frontmatter.blogspotUrl,
+  }))
+  .sort((a, b) => Number(b.year) - Number(a.year));
 ---
 
 <BaseLayout title="Gallery" description="Photo gallery of FA4C activities from 2013 to 2017 — community events, programmes, and more.">

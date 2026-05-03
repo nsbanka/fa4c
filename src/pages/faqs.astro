@@ -1,40 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const faqs = [
-  {
-    q: "Why is 'Friends Association For A Change' started?",
-    a: "FA4C is started for the implementation of welfare initiatives for underprivileged communities. A group of friends in Visakhapatnam came together with the belief that collective action among ordinary people can create extraordinary change."
-  },
-  {
-    q: "Who can benefit from FA4C's programmes?",
-    a: "Our programmes target underprivileged communities in Visakhapatnam, AP. Vidyabhyasam focuses on students from 6th–10th standard in government schools (preferably orphans/semi-orphans). Sankalpam targets women in distress. Pragathi and Sphoorthi benefit the broader community."
-  },
-  {
-    q: "How can I contribute to FA4C?",
-    a: "You can contribute by transferring funds to our ICICI Bank (A/c: 006001033376, IFSC: ICIC0000060) or SBI account (A/c: 33747868111, IFSC: SBIN0006959). Both accounts are in the name of 'Friends Association for a Change'. After transferring, please email fa4change@gmail.com with your details."
-  },
-  {
-    q: "Is FA4C a registered organisation?",
-    a: "Yes, Friends Association for a Change is a registered non-profit organisation. We publish annual audit reports for complete financial transparency, available on our Audit Reports page."
-  },
-  {
-    q: "How can I volunteer with FA4C?",
-    a: "We welcome volunteers who want to contribute their time and skills. Please reach out to us through the Contact page or email fa4change@gmail.com with your details and area of interest."
-  },
-  {
-    q: "Where is FA4C based?",
-    a: "FA4C is based in Visakhapatnam (Vizag), Andhra Pradesh, India. Our registered address is Door No. 58-14-91, Flat No. 401, Prakash Residency, HIG-20, Marripalem VUDA Layout, Visakhapatnam, AP 530009."
-  },
-  {
-    q: "How are the contributed funds used?",
-    a: "Funds are used directly for our five programmes: Vidyabhyasam (education), Pragathi (environment), Sphoorthi (medical), Sankalpam (women empowerment), and Mee Nestham (cultural activities). Annual audit reports detail all expenditure."
-  },
-  {
-    q: "Can I get a tax exemption for my donation?",
-    a: "Please contact us at fa4change@gmail.com for the latest information on tax exemption status and required documentation."
-  },
-];
+const modules = import.meta.glob('../data/faqs/*.md', { eager: true });
+const faqs = Object.values(modules)
+  .map((mod: any) => ({ q: mod.frontmatter.question, a: mod.frontmatter.answer, order: mod.frontmatter.order ?? 99 }))
+  .sort((a, b) => a.order - b.order);
 ---
 <BaseLayout title="FAQs" description="Frequently asked questions about Friends Association for a Change — about our programmes, contributions, and how to get involved.">
   <div class="max-w-3xl mx-auto px-4 py-12">
