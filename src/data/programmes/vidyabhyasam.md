@@ -2,7 +2,7 @@
 name: Vidyabhyasam
 slug: vidyabhyasam
 icon: 📚
-description: Supporting education for underprivileged students from 6th to 10th standard in government schools.
+description: Supporting education of underprivileged students.
 image: /images/2016/Vidyabyasam.jpg
 ---
 
